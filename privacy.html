@@ -9,8 +9,8 @@
       --bg:#050210;
       --card: rgba(255,255,255,.08);
       --stroke: rgba(255,255,255,.12);
-      --txt: rgba(255,255,255,.88);
-      --muted: rgba(255,255,255,.62);
+      --txt: rgba(255,255,255,.90);
+      --muted: rgba(255,255,255,.64);
       --neon: #BFA6FF;
       --p1:#6D28FF;
       --p2:#3B1DFF;
@@ -27,12 +27,12 @@
     .stars{
       position:fixed; inset:0;
       background:
-        radial-gradient(2px 2px at 10% 20%, rgba(255,255,255,.25), transparent 40%),
-        radial-gradient(1px 1px at 30% 70%, rgba(255,255,255,.18), transparent 40%),
-        radial-gradient(1px 1px at 60% 40%, rgba(255,255,255,.22), transparent 40%),
-        radial-gradient(2px 2px at 80% 60%, rgba(255,255,255,.16), transparent 40%);
+        radial-gradient(2px 2px at 10% 20%, rgba(255,255,255,.22), transparent 40%),
+        radial-gradient(1px 1px at 30% 70%, rgba(255,255,255,.16), transparent 40%),
+        radial-gradient(1px 1px at 60% 40%, rgba(255,255,255,.20), transparent 40%),
+        radial-gradient(2px 2px at 80% 60%, rgba(255,255,255,.14), transparent 40%);
       animation: drift 8s ease-in-out infinite alternate;
-      opacity:.55;
+      opacity:.6;
       pointer-events:none;
     }
     @keyframes drift{ from{ transform:translate3d(0,0,0)} to{ transform:translate3d(-10px, -14px, 0)} }
@@ -55,7 +55,7 @@
       border: 1px solid var(--stroke);
       box-shadow: 0 18px 40px rgba(0,0,0,.45);
       backdrop-filter: blur(14px);
-      padding: 16px 16px;
+      padding: 16px;
       position: relative;
       overflow:hidden;
     }
@@ -67,11 +67,23 @@
     }
     @keyframes sheen{ 0%{ transform:translateX(-40%) } 50%{ transform:translateX(40%) } 100%{ transform:translateX(-40%) } }
 
-    h3{ margin: 14px 0 8px; font-size: 14px; letter-spacing:.6px; color: rgba(255,255,255,.95); }
-    p, li{ color: var(--muted); line-height: 1.55; font-weight: 600; font-size: 14px; }
+    h3{ margin: 16px 0 8px; font-size: 14px; letter-spacing:.6px; color: rgba(255,255,255,.95); }
+    p, li{ color: var(--muted); line-height: 1.6; font-weight: 650; font-size: 14px; }
     ul{ padding-left: 18px; margin: 8px 0 10px; }
-    .accent{ color: var(--neon); }
-    .small{ font-size: 12px; color: rgba(255,255,255,.56); font-weight: 700; }
+    .accent{ color: var(--neon); font-weight: 800; }
+    .small{ font-size: 12px; color: rgba(255,255,255,.56); font-weight: 750; }
+    .pill{
+      display:inline-block;
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: rgba(191,166,255,.14);
+      border: 1px solid rgba(255,255,255,.10);
+      margin-top: 8px;
+      color: rgba(255,255,255,.80);
+      font-weight: 800;
+      font-size: 12px;
+      letter-spacing:.3px;
+    }
   </style>
 </head>
 <body>
@@ -82,41 +94,43 @@
     <div class="card">
       <div class="sheen"></div>
       <div class="small">BT Farm – Cloud Miner • Last updated: 2026-02-07</div>
-      <p><span class="accent">Simulation Notice:</span> This app is a simulator/entertainment app. Mining, balances, and withdrawals are simulated and do not represent real cryptocurrency mining or real-world financial services.</p>
+      <div class="pill">Simulation / Entertainment App</div>
 
-      <h3>1) Overview</h3>
-      <p>We respect your privacy. This policy explains what we collect and how we use it.</p>
+      <p><span class="accent">Important:</span> BT Farm – Cloud Miner is a simulator app. Any mining, balances, withdrawals, or transactions displayed in the app are simulated and do not represent real cryptocurrency mining, real-world earnings, or financial services.</p>
 
-      <h3>2) Information We Collect</h3>
+      <h3>1) What We Collect</h3>
       <ul>
-        <li>Account information (email/password) used for authentication (Firebase Authentication).</li>
-        <li>Profile details you provide (name; optional mobile/country).</li>
-        <li>In-app activity such as mining sessions, game sessions, and simulated wallet history.</li>
-        <li>Device/diagnostics information (crash logs) when enabled by platform services.</li>
+        <li><b>Account data:</b> Email and password to create/login to your account (Firebase Authentication).</li>
+        <li><b>Profile data:</b> Name/last name; optional fields like mobile number and country (if provided).</li>
+        <li><b>App activity:</b> Simulator activity such as mining sessions, game activity, and in-app history.</li>
+        <li><b>Diagnostics:</b> Crash/performance data when provided by platform services.</li>
       </ul>
 
-      <h3>3) How We Use Information</h3>
+      <h3>2) How We Use Your Data</h3>
       <ul>
-        <li>To manage accounts and allow sign-in.</li>
-        <li>To save and display your simulated balances and history.</li>
-        <li>To respond to support and feedback.</li>
-        <li>To improve performance and stability.</li>
+        <li>To authenticate you and keep your account secure.</li>
+        <li>To store and display your simulator balances and history across sessions/devices.</li>
+        <li>To respond to support requests and feedback.</li>
+        <li>To improve stability and performance.</li>
       </ul>
 
-      <h3>4) Data Storage</h3>
-      <p>We may store data using Firebase services (Google) and may cache some data locally on your device for performance.</p>
+      <h3>3) Storage & Providers</h3>
+      <p>We use Firebase (Google) services such as Authentication and Firestore. We may cache some data on your device to improve speed and user experience.</p>
 
-      <h3>5) Sharing</h3>
-      <p>We do not sell personal information. We may share data with service providers used to operate the app (e.g., Firebase) or when required by law.</p>
+      <h3>4) Sharing</h3>
+      <p>We do not sell your personal information. We may share data with service providers used to operate the app (e.g., Firebase) and when required by law.</p>
+
+      <h3>5) Your Choices</h3>
+      <ul>
+        <li>You can log out at any time.</li>
+        <li>You can request deletion of your account (if available in-app) or by contacting support.</li>
+      </ul>
 
       <h3>6) Children</h3>
-      <p>This app is not intended for children under 13 (or the minimum age required in your country).</p>
+      <p>This app is not intended for children under 13 (or the minimum age required by your country).</p>
 
-      <h3>7) Security</h3>
-      <p>We use reasonable safeguards, but no method is 100% secure.</p>
-
-      <h3>8) Contact</h3>
-      <p>Email: <span class="accent">jaydeeplathiya@icloud.com</span></p>
+      <h3>7) Contact</h3>
+      <p>Support email: <span class="accent">jaydeeplathiya@icloud.com</span></p>
 
       <p class="small">By using the app, you agree to this Privacy Policy.</p>
     </div>
