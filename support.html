@@ -15,14 +15,28 @@
     }
     body{
       margin:0;
-      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", Segoe UI, Roboto, Arial;
-      background: radial-gradient(1200px 900px at 20% 10%, rgba(109,40,255,.22), transparent 60%),
-                  radial-gradient(1000px 700px at 80% 30%, rgba(59,29,255,.18), transparent 60%),
-                  linear-gradient(135deg, rgba(5,2,16,.96), rgba(5,2,16,.98));
+      font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text",Segoe UI,Roboto,Arial;
+      background:
+        radial-gradient(1200px 900px at 20% 10%, rgba(109,40,255,.22), transparent 60%),
+        radial-gradient(1000px 700px at 80% 30%, rgba(59,29,255,.18), transparent 60%),
+        linear-gradient(135deg, rgba(5,2,16,.96), rgba(5,2,16,.98));
       color: var(--txt);
       overflow-x:hidden;
     }
-    .wrap{ max-width: 880px; margin: 0 auto; padding: 22px 16px 36px; }
+    .wrap{ max-width: 900px; margin: 0 auto; padding: 22px 16px 36px; }
+    .topnav{ display:flex; gap:10px; flex-wrap:wrap; align-items:center; margin-bottom: 12px; }
+    .chip{
+      display:inline-flex; align-items:center; gap:8px;
+      padding: 10px 12px; border-radius: 999px;
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.12);
+      color: rgba(255,255,255,.82);
+      text-decoration:none;
+      font-weight: 900;
+      letter-spacing:.2px;
+      transition: transform .18s ease, opacity .18s ease;
+    }
+    .chip:active{ transform: scale(.98); opacity:.9; }
     .title{
       font-size: 34px; font-weight: 900; letter-spacing: .2px;
       margin: 8px 0 14px;
@@ -41,7 +55,17 @@
       backdrop-filter: blur(14px);
       padding: 16px;
       margin-bottom: 14px;
+      position:relative;
+      overflow:hidden;
     }
+    .sheen{
+      position:absolute; inset:-40%;
+      background: linear-gradient(135deg, transparent 40%, rgba(255,255,255,.07), transparent 60%);
+      transform: translateX(-40%);
+      animation: sheen 3.4s ease-in-out infinite;
+      pointer-events:none;
+    }
+    @keyframes sheen{ 0%{ transform:translateX(-40%) } 50%{ transform:translateX(40%) } 100%{ transform:translateX(-40%) } }
     h3{ margin: 12px 0 8px; font-size: 14px; letter-spacing:.6px; color: rgba(255,255,255,.95); }
     p, li{ color: var(--muted); line-height: 1.6; font-weight: 650; font-size: 14px; }
     ul{ padding-left: 18px; margin: 8px 0 10px; }
@@ -56,7 +80,6 @@
       font-weight: 900;
       letter-spacing:.3px;
       text-decoration:none;
-      transform: translateY(0);
       transition: transform .18s ease, opacity .18s ease;
     }
     .btn:active{ transform: scale(.98); opacity:.9; }
@@ -65,37 +88,53 @@
 </head>
 <body>
   <div class="wrap">
+    <div class="topnav">
+      <a class="chip" href="./privacy.html">Privacy</a>
+      <a class="chip" href="./terms.html">Terms</a>
+      <a class="chip" href="./support.html">Support</a>
+    </div>
+
     <div class="title">Help & Support</div>
 
     <div class="card">
+      <div class="sheen"></div>
       <h3>Contact</h3>
       <p>Email: <span class="accent">jaydeeplathiya@icloud.com</span></p>
-      <p class="small">We usually reply within 1–3 business days.</p>
+      <p class="small">Please include app version + device model + iOS version if reporting a bug.</p>
       <a class="btn" href="mailto:jaydeeplathiya@icloud.com?subject=BT%20Farm%20Support">EMAIL SUPPORT</a>
     </div>
 
     <div class="card">
-      <h3>FAQ</h3>
+      <div class="sheen"></div>
+      <h3>FAQ (Simulator)</h3>
       <ul>
-        <li><b>Is this real BTC?</b> No. This app is a simulator and has no real-world monetary value.</li>
-        <li><b>Why is my balance “locked”?</b> Locked amount is used for simulated withdrawal processing.</li>
-        <li><b>Mining session rules?</b> Each session runs up to 2 hours. Collect to start a new session.</li>
-        <li><b>Game coins?</b> Game rewards are simulated and may be converted to simulated BTC in-app (if enabled).</li>
+        <li><b>Is this real BTC?</b> No. It’s a simulator/entertainment app.</li>
+        <li><b>Why do I need to collect?</b> To reset the session and start a new one.</li>
+        <li><b>Why is balance “locked”?</b> Locked amount is used for simulated withdrawal processing.</li>
       </ul>
     </div>
 
     <div class="card">
-      <h3>Report a problem</h3>
-      <p>Please include:</p>
+      <div class="sheen"></div>
+      <h3>Ads FAQ (Google AdMob)</h3>
       <ul>
-        <li>Device model + iOS version</li>
-        <li>App version</li>
-        <li>Steps to reproduce</li>
-        <li>Screenshots (if possible)</li>
+        <li><b>Why am I seeing ads?</b> Ads help support development and keep the app free.</li>
+        <li><b>Personalized ads?</b> On iOS, personalized ads depend on your tracking permission and settings.</li>
+        <li><b>Ad problem / inappropriate ad?</b> Send screenshot + time + what happened to support email.</li>
       </ul>
     </div>
 
-    <p class="small">BT Farm – Cloud Miner • Simulation / Entertainment App</p>
+    <div class="card">
+      <div class="sheen"></div>
+      <h3>Report a Problem</h3>
+      <ul>
+        <li>Steps to reproduce</li>
+        <li>Screenshot / screen recording</li>
+        <li>App version, device model, iOS version</li>
+      </ul>
+    </div>
+
+    <p class="small">BT Farm – Cloud Miner • Simulation / Entertainment • Last updated: 2026-02-07</p>
   </div>
 </body>
 </html>
