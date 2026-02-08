@@ -17,10 +17,11 @@
     }
     body{
       margin:0;
-      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", Segoe UI, Roboto, Arial;
-      background: radial-gradient(1200px 900px at 20% 10%, rgba(109,40,255,.22), transparent 60%),
-                  radial-gradient(1000px 700px at 80% 30%, rgba(59,29,255,.18), transparent 60%),
-                  linear-gradient(135deg, rgba(5,2,16,.96), rgba(5,2,16,.98));
+      font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text",Segoe UI,Roboto,Arial;
+      background:
+        radial-gradient(1200px 900px at 20% 10%, rgba(109,40,255,.22), transparent 60%),
+        radial-gradient(1000px 700px at 80% 30%, rgba(59,29,255,.18), transparent 60%),
+        linear-gradient(135deg, rgba(5,2,16,.96), rgba(5,2,16,.98));
       color: var(--txt);
       overflow-x:hidden;
     }
@@ -36,8 +37,24 @@
       pointer-events:none;
     }
     @keyframes drift{ from{ transform:translate3d(0,0,0)} to{ transform:translate3d(-10px, -14px, 0)} }
-
-    .wrap{ max-width: 880px; margin: 0 auto; padding: 22px 16px 36px; }
+    .wrap{ max-width: 900px; margin: 0 auto; padding: 22px 16px 36px; }
+    .topnav{
+      display:flex; gap:10px; flex-wrap:wrap; align-items:center;
+      margin-bottom: 12px;
+    }
+    .chip{
+      display:inline-flex; align-items:center; gap:8px;
+      padding: 10px 12px; border-radius: 999px;
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.12);
+      color: rgba(255,255,255,.82);
+      text-decoration:none;
+      font-weight: 900;
+      letter-spacing:.2px;
+      transform: translateY(0);
+      transition: transform .18s ease, opacity .18s ease;
+    }
+    .chip:active{ transform: scale(.98); opacity:.9; }
     .title{
       font-size: 34px; font-weight: 900; letter-spacing: .2px;
       margin: 8px 0 14px;
@@ -48,7 +65,6 @@
       animation: pop .55s ease-out forwards;
     }
     @keyframes pop{ to{ transform:translateY(0); opacity:1 } }
-
     .card{
       border-radius: 22px;
       background: linear-gradient(135deg, rgba(255,255,255,.10), rgba(59,29,255,.10), rgba(0,0,0,.10));
@@ -64,13 +80,13 @@
       background: linear-gradient(135deg, transparent 40%, rgba(255,255,255,.08), transparent 60%);
       transform: translateX(-40%);
       animation: sheen 3.2s ease-in-out infinite;
+      pointer-events:none;
     }
     @keyframes sheen{ 0%{ transform:translateX(-40%) } 50%{ transform:translateX(40%) } 100%{ transform:translateX(-40%) } }
-
     h3{ margin: 16px 0 8px; font-size: 14px; letter-spacing:.6px; color: rgba(255,255,255,.95); }
     p, li{ color: var(--muted); line-height: 1.6; font-weight: 650; font-size: 14px; }
     ul{ padding-left: 18px; margin: 8px 0 10px; }
-    .accent{ color: var(--neon); font-weight: 800; }
+    .accent{ color: var(--neon); font-weight: 900; }
     .small{ font-size: 12px; color: rgba(255,255,255,.56); font-weight: 750; }
     .pill{
       display:inline-block;
@@ -80,7 +96,7 @@
       border: 1px solid rgba(255,255,255,.10);
       margin-top: 8px;
       color: rgba(255,255,255,.80);
-      font-weight: 800;
+      font-weight: 900;
       font-size: 12px;
       letter-spacing:.3px;
     }
@@ -88,42 +104,62 @@
 </head>
 <body>
   <div class="stars"></div>
+
   <div class="wrap">
+    <div class="topnav">
+      <a class="chip" href="./privacy.html">Privacy</a>
+      <a class="chip" href="./terms.html">Terms</a>
+      <a class="chip" href="./support.html">Support</a>
+    </div>
+
     <div class="title">Privacy Policy</div>
 
     <div class="card">
       <div class="sheen"></div>
+
       <div class="small">BT Farm – Cloud Miner • Last updated: 2026-02-07</div>
       <div class="pill">Simulation / Entertainment App</div>
 
       <p><span class="accent">Important:</span> BT Farm – Cloud Miner is a simulator app. Any mining, balances, withdrawals, or transactions displayed in the app are simulated and do not represent real cryptocurrency mining, real-world earnings, or financial services.</p>
 
-      <h3>1) What We Collect</h3>
+      <h3>1) Information We Collect</h3>
       <ul>
-        <li><b>Account data:</b> Email and password to create/login to your account (Firebase Authentication).</li>
-        <li><b>Profile data:</b> Name/last name; optional fields like mobile number and country (if provided).</li>
+        <li><b>Account data:</b> Email and password for sign-up/sign-in (Firebase Authentication).</li>
+        <li><b>Profile data:</b> Name/last name; optional mobile number and country if you provide them.</li>
         <li><b>App activity:</b> Simulator activity such as mining sessions, game activity, and in-app history.</li>
-        <li><b>Diagnostics:</b> Crash/performance data when provided by platform services.</li>
+        <li><b>Support & feedback:</b> Messages you submit and optional device/app info you include.</li>
+        <li><b>Diagnostics:</b> Crash/performance information (if enabled by platform/services).</li>
       </ul>
 
-      <h3>2) How We Use Your Data</h3>
+      <h3>2) Advertising (Google AdMob / Google Ads)</h3>
+      <p>We may show ads using <span class="accent">Google AdMob</span> (Google Ads).</p>
+      <ul>
+        <li>AdMob may collect <b>device identifiers</b> (such as Advertising Identifier), <b>IP address</b>, <b>app usage</b>, and <b>diagnostics</b> to display and measure ads.</li>
+        <li>On iOS, if we request tracking permission (AppTrackingTransparency), you can <b>allow</b> or <b>deny</b>. If denied, we can still show <b>non-personalized</b> ads where supported.</li>
+        <li>Ad-related data is processed by Google according to their policies.</li>
+      </ul>
+
+      <h3>3) How We Use Your Data</h3>
       <ul>
         <li>To authenticate you and keep your account secure.</li>
-        <li>To store and display your simulator balances and history across sessions/devices.</li>
-        <li>To respond to support requests and feedback.</li>
+        <li>To store and display simulator balances and history across sessions/devices.</li>
+        <li>To provide support and respond to feedback.</li>
         <li>To improve stability and performance.</li>
+        <li>To show and measure ads (if ads are enabled).</li>
       </ul>
 
-      <h3>3) Storage & Providers</h3>
-      <p>We use Firebase (Google) services such as Authentication and Firestore. We may cache some data on your device to improve speed and user experience.</p>
-
       <h3>4) Sharing</h3>
-      <p>We do not sell your personal information. We may share data with service providers used to operate the app (e.g., Firebase) and when required by law.</p>
+      <p>We do not sell your personal information. We may share information with:</p>
+      <ul>
+        <li><b>Service providers</b> we use to operate the app (e.g., Firebase, Google AdMob).</li>
+        <li><b>Legal requirements</b> if required by law or to protect users and the service.</li>
+      </ul>
 
       <h3>5) Your Choices</h3>
       <ul>
         <li>You can log out at any time.</li>
-        <li>You can request deletion of your account (if available in-app) or by contacting support.</li>
+        <li>You can request account deletion in-app (if available) or by contacting us.</li>
+        <li>You can control ad tracking permissions on iOS in system settings (if requested by the app).</li>
       </ul>
 
       <h3>6) Children</h3>
